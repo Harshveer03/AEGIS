@@ -1,0 +1,324 @@
+{
+  "agents": [
+    {
+      "name": "file_agent",
+      "description": "Handles all local filesystem operations including reading, writing, searching, moving, copying, and deleting files and directories",
+      "capability_schema": {
+        "domain": "file",
+        "task_types": [
+          "read_file",
+          "write_file",
+          "delete_file",
+          "search_files",
+          "list_directory",
+          "move_file",
+          "copy_file"
+        ],
+        "input_formats": [
+          "text",
+          "path"
+        ],
+        "output_formats": [
+          "text",
+          "file",
+          "list"
+        ]
+      },
+      "system_prompt": "You are the File Agent, a specialist in local filesystem operations. You read, write, search, move, copy, and delete files and directories. You always confirm before writing, moving, or deleting. You never access files outside the user's specified paths without explicit permission.",
+      "skills": [
+        "read_file",
+        "write_file",
+        "append_file",
+        "delete_file",
+        "list_directory",
+        "search_files",
+        "move_file",
+        "copy_file"
+      ],
+      "performance_score": 50.0,
+      "task_count": 0,
+      "failure_count": 0,
+      "failure_attribution": {
+        "brain": 0,
+        "agent": 0,
+        "skill": 0,
+        "external": 0
+      },
+      "version": 1,
+      "is_active": true,
+      "is_generated": false,
+      "predecessor_briefing": null,
+      "trust_levels": {
+        "read": "autonomous",
+        "write": "approve",
+        "delete": "approve",
+        "send": "approve"
+      }
+    },
+    {
+      "name": "search_agent",
+      "description": "Searches the web and news for information, answers research questions, and retrieves current information from the internet",
+      "capability_schema": {
+        "domain": "search",
+        "task_types": [
+          "web_search",
+          "news_search",
+          "research",
+          "find_information"
+        ],
+        "input_formats": [
+          "text",
+          "query"
+        ],
+        "output_formats": [
+          "text",
+          "list",
+          "structured"
+        ]
+      },
+      "system_prompt": "You are the Search Agent, a specialist in web and news retrieval. You find accurate, relevant information from the internet. You always return structured results with titles, URLs, and summaries. You prefer recent sources and flag when information may be outdated.",
+      "skills": [
+        "web_search",
+        "news_search"
+      ],
+      "performance_score": 50.0,
+      "task_count": 0,
+      "failure_count": 0,
+      "failure_attribution": {
+        "brain": 0,
+        "agent": 0,
+        "skill": 0,
+        "external": 0
+      },
+      "version": 1,
+      "is_active": true,
+      "is_generated": false,
+      "predecessor_briefing": null,
+      "trust_levels": {
+        "read": "autonomous",
+        "write": "approve",
+        "delete": "approve",
+        "send": "approve"
+      }
+    },
+    {
+      "name": "browser_agent",
+      "description": "Interacts with websites using a headless browser \u2014 fetches page content, extracts links, and takes screenshots",
+      "capability_schema": {
+        "domain": "browser",
+        "task_types": [
+          "fetch_page",
+          "take_screenshot",
+          "extract_links",
+          "web_interaction"
+        ],
+        "input_formats": [
+          "url",
+          "text"
+        ],
+        "output_formats": [
+          "text",
+          "image",
+          "list"
+        ]
+      },
+      "system_prompt": "You are the Browser Agent, a specialist in web interaction. You fetch web pages, extract links, and take screenshots using a headless browser. You handle timeouts gracefully and always return meaningful content.",
+      "skills": [
+        "fetch_page",
+        "take_screenshot",
+        "extract_links"
+      ],
+      "performance_score": 50.0,
+      "task_count": 0,
+      "failure_count": 0,
+      "failure_attribution": {
+        "brain": 0,
+        "agent": 0,
+        "skill": 0,
+        "external": 0
+      },
+      "version": 1,
+      "is_active": true,
+      "is_generated": false,
+      "predecessor_briefing": null,
+      "trust_levels": {
+        "read": "autonomous",
+        "write": "approve",
+        "delete": "approve",
+        "send": "approve"
+      }
+    },
+    {
+      "name": "code_agent",
+      "description": "Writes, validates, and executes Python code. Validates syntax before running. Handles code generation and script execution tasks.",
+      "capability_schema": {
+        "domain": "code",
+        "task_types": [
+          "run_python",
+          "validate_syntax",
+          "execute_code",
+          "code_generation"
+        ],
+        "input_formats": [
+          "code",
+          "text"
+        ],
+        "output_formats": [
+          "text",
+          "stdout",
+          "structured"
+        ]
+      },
+      "system_prompt": "You are the Code Agent, a specialist in Python code execution and validation. You always validate syntax before executing. You never run code that could cause harm to the system. You always require confirmation before executing code.",
+      "skills": [
+        "run_python",
+        "validate_syntax",
+        "run_python_with_input"
+      ],
+      "performance_score": 50.0,
+      "task_count": 0,
+      "failure_count": 0,
+      "failure_attribution": {
+        "brain": 0,
+        "agent": 0,
+        "skill": 0,
+        "external": 0
+      },
+      "version": 1,
+      "is_active": true,
+      "is_generated": false,
+      "predecessor_briefing": null,
+      "trust_levels": {
+        "read": "autonomous",
+        "write": "approve",
+        "delete": "approve",
+        "send": "approve"
+      }
+    },
+    {
+      "name": "summarize_urls_agent",
+      "description": "Fetches and condenses content from a list of URLs",
+      "capability_schema": {
+        "domain": "web_summarization",
+        "task_types": [
+          "url_summary"
+        ],
+        "input_formats": [
+          "text"
+        ],
+        "output_formats": [
+          "text"
+        ]
+      },
+      "system_prompt": "fetch and summarize all URLs in the given directory",
+      "skills": [
+        "read_file",
+        "write_file",
+        "search_files",
+        "fetch_page"
+      ],
+      "performance_score": 50.0,
+      "task_count": 0,
+      "failure_count": 0,
+      "failure_attribution": {
+        "brain": 0,
+        "agent": 0,
+        "skill": 0,
+        "external": 0
+      },
+      "version": 1,
+      "is_active": true,
+      "is_generated": true,
+      "predecessor_briefing": null,
+      "trust_levels": {
+        "read": "autonomous",
+        "write": "approve",
+        "delete": "approve",
+        "send": "approve"
+      }
+    },
+    {
+      "name": "translate_text_agent",
+      "description": "Translate text from English to a target language using web search",
+      "capability_schema": {
+        "domain": "text_translation",
+        "task_types": [
+          "web_search",
+          "read_file"
+        ],
+        "input_formats": [
+          "text"
+        ],
+        "output_formats": [
+          "text"
+        ]
+      },
+      "system_prompt": "translate english text into target language and save to file",
+      "skills": [
+        "web_search",
+        "write_file",
+        "read_file"
+      ],
+      "performance_score": 50.0,
+      "task_count": 0,
+      "failure_count": 0,
+      "failure_attribution": {
+        "brain": 0,
+        "agent": 0,
+        "skill": 0,
+        "external": 0
+      },
+      "version": 1,
+      "is_active": true,
+      "is_generated": true,
+      "predecessor_briefing": null,
+      "trust_levels": {
+        "read": "autonomous",
+        "write": "approve",
+        "delete": "approve",
+        "send": "approve"
+      }
+    },
+    {
+      "name": "fetch_weather_data_agent",
+      "description": "Fetches weather data from a weather API and returns a summary.",
+      "capability_schema": {
+        "domain": "weather_api",
+        "task_types": [
+          "web_search",
+          "extract_links"
+        ],
+        "input_formats": [
+          "text"
+        ],
+        "output_formats": [
+          "text"
+        ]
+      },
+      "system_prompt": "search the web for weather api results and extract links to weather data",
+      "skills": [
+        "web_search",
+        "extract_links"
+      ],
+      "performance_score": 50.0,
+      "task_count": 0,
+      "failure_count": 0,
+      "failure_attribution": {
+        "brain": 0,
+        "agent": 0,
+        "skill": 0,
+        "external": 0
+      },
+      "version": 1,
+      "is_active": true,
+      "is_generated": true,
+      "predecessor_briefing": null,
+      "trust_levels": {
+        "read": "autonomous",
+        "write": "approve",
+        "delete": "approve",
+        "send": "approve"
+      }
+    }
+  ]
+}

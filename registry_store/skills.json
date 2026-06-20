@@ -1,0 +1,561 @@
+{
+  "skills": [
+    {
+      "name": "read_file",
+      "version": 1,
+      "description": "Read the contents of a file from the local filesystem",
+      "module_path": "backend.skills.file_skills",
+      "function_name": "read_file",
+      "parameters": {
+        "path": "string"
+      },
+      "output_schema": {
+        "content": "string",
+        "path": "string"
+      },
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [
+          "*"
+        ],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 2,
+        "backoff_seconds": 0.5,
+        "retryable_errors": []
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "file",
+      "is_generated": false
+    },
+    {
+      "name": "write_file",
+      "version": 1,
+      "description": "Write content to a file on the local filesystem",
+      "module_path": "backend.skills.file_skills",
+      "function_name": "write_file",
+      "parameters": {
+        "path": "string",
+        "content": "string"
+      },
+      "output_schema": {
+        "path": "string",
+        "bytes_written": "integer"
+      },
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [
+          "*"
+        ],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 1,
+        "backoff_seconds": 0.5,
+        "retryable_errors": []
+      },
+      "requires_confirmation": true,
+      "operation_type": "write",
+      "category": "file",
+      "is_generated": false
+    },
+    {
+      "name": "append_file",
+      "version": 1,
+      "description": "Append content to an existing file",
+      "module_path": "backend.skills.file_skills",
+      "function_name": "append_file",
+      "parameters": {
+        "path": "string",
+        "content": "string"
+      },
+      "output_schema": {
+        "path": "string"
+      },
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [
+          "*"
+        ],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 1,
+        "backoff_seconds": 0.5,
+        "retryable_errors": []
+      },
+      "requires_confirmation": true,
+      "operation_type": "write",
+      "category": "file",
+      "is_generated": false
+    },
+    {
+      "name": "delete_file",
+      "version": 1,
+      "description": "Permanently delete a file from the filesystem",
+      "module_path": "backend.skills.file_skills",
+      "function_name": "delete_file",
+      "parameters": {
+        "path": "string"
+      },
+      "output_schema": {
+        "deleted": "string"
+      },
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [
+          "*"
+        ],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 0,
+        "backoff_seconds": 0.0,
+        "retryable_errors": []
+      },
+      "requires_confirmation": true,
+      "operation_type": "delete",
+      "category": "file",
+      "is_generated": false
+    },
+    {
+      "name": "list_directory",
+      "version": 1,
+      "description": "List all files and folders in a directory",
+      "module_path": "backend.skills.file_skills",
+      "function_name": "list_directory",
+      "parameters": {
+        "path": "string"
+      },
+      "output_schema": {
+        "entries": "array",
+        "path": "string"
+      },
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [
+          "*"
+        ],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 1,
+        "backoff_seconds": 0.5,
+        "retryable_errors": []
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "file",
+      "is_generated": false
+    },
+    {
+      "name": "search_files",
+      "version": 1,
+      "description": "Search for files matching a pattern in a directory recursively",
+      "module_path": "backend.skills.file_skills",
+      "function_name": "search_files",
+      "parameters": {
+        "directory": "string",
+        "pattern": "string"
+      },
+      "output_schema": {
+        "matches": "array",
+        "count": "integer"
+      },
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [
+          "*"
+        ],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 1,
+        "backoff_seconds": 0.5,
+        "retryable_errors": []
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "file",
+      "is_generated": false
+    },
+    {
+      "name": "move_file",
+      "version": 1,
+      "description": "Move a file from one location to another",
+      "module_path": "backend.skills.file_skills",
+      "function_name": "move_file",
+      "parameters": {
+        "source": "string",
+        "destination": "string"
+      },
+      "output_schema": {
+        "from": "string",
+        "to": "string"
+      },
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [
+          "*"
+        ],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 1,
+        "backoff_seconds": 0.5,
+        "retryable_errors": []
+      },
+      "requires_confirmation": true,
+      "operation_type": "write",
+      "category": "file",
+      "is_generated": false
+    },
+    {
+      "name": "copy_file",
+      "version": 1,
+      "description": "Copy a file from one location to another",
+      "module_path": "backend.skills.file_skills",
+      "function_name": "copy_file",
+      "parameters": {
+        "source": "string",
+        "destination": "string"
+      },
+      "output_schema": {
+        "from": "string",
+        "to": "string"
+      },
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [
+          "*"
+        ],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 1,
+        "backoff_seconds": 0.5,
+        "retryable_errors": []
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "file",
+      "is_generated": false
+    },
+    {
+      "name": "web_search",
+      "version": 1,
+      "description": "Search the web using DuckDuckGo and return results with titles, URLs, and snippets",
+      "module_path": "backend.skills.search_skills",
+      "function_name": "web_search",
+      "parameters": {
+        "query": "string",
+        "max_results": "integer"
+      },
+      "output_schema": {
+        "results": "array",
+        "count": "integer",
+        "query": "string"
+      },
+      "permission_manifest": {
+        "allowed_domains": [
+          "*"
+        ],
+        "allowed_file_paths": [],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 3,
+        "backoff_seconds": 1.0,
+        "retryable_errors": [
+          "ConnectionError",
+          "TimeoutError"
+        ]
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "search",
+      "is_generated": false
+    },
+    {
+      "name": "news_search",
+      "version": 1,
+      "description": "Search for recent news articles using DuckDuckGo",
+      "module_path": "backend.skills.search_skills",
+      "function_name": "news_search",
+      "parameters": {
+        "query": "string",
+        "max_results": "integer"
+      },
+      "output_schema": {
+        "results": "array",
+        "count": "integer",
+        "query": "string"
+      },
+      "permission_manifest": {
+        "allowed_domains": [
+          "*"
+        ],
+        "allowed_file_paths": [],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 3,
+        "backoff_seconds": 1.0,
+        "retryable_errors": [
+          "ConnectionError",
+          "TimeoutError"
+        ]
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "search",
+      "is_generated": false
+    },
+    {
+      "name": "fetch_page",
+      "version": 1,
+      "description": "Fetch the text content of a webpage using a headless browser",
+      "module_path": "backend.skills.browser_skills",
+      "function_name": "fetch_page",
+      "parameters": {
+        "url": "string"
+      },
+      "output_schema": {
+        "url": "string",
+        "title": "string",
+        "content": "string"
+      },
+      "permission_manifest": {
+        "allowed_domains": [
+          "*"
+        ],
+        "allowed_file_paths": [],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 2,
+        "backoff_seconds": 2.0,
+        "retryable_errors": [
+          "TimeoutError"
+        ]
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "browser",
+      "is_generated": false
+    },
+    {
+      "name": "take_screenshot",
+      "version": 1,
+      "description": "Take a full-page screenshot of a URL and save it to disk",
+      "module_path": "backend.skills.browser_skills",
+      "function_name": "take_screenshot",
+      "parameters": {
+        "url": "string",
+        "save_path": "string"
+      },
+      "output_schema": {
+        "url": "string",
+        "saved_to": "string"
+      },
+      "permission_manifest": {
+        "allowed_domains": [
+          "*"
+        ],
+        "allowed_file_paths": [
+          "*"
+        ],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 2,
+        "backoff_seconds": 2.0,
+        "retryable_errors": [
+          "TimeoutError"
+        ]
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "browser",
+      "is_generated": false
+    },
+    {
+      "name": "extract_links",
+      "version": 1,
+      "description": "Extract all hyperlinks from a webpage",
+      "module_path": "backend.skills.browser_skills",
+      "function_name": "extract_links",
+      "parameters": {
+        "url": "string"
+      },
+      "output_schema": {
+        "url": "string",
+        "links": "array",
+        "count": "integer"
+      },
+      "permission_manifest": {
+        "allowed_domains": [
+          "*"
+        ],
+        "allowed_file_paths": [],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 2,
+        "backoff_seconds": 2.0,
+        "retryable_errors": [
+          "TimeoutError"
+        ]
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "browser",
+      "is_generated": false
+    },
+    {
+      "name": "run_python",
+      "version": 1,
+      "description": "Execute a Python code snippet and return stdout, stderr, and return code",
+      "module_path": "backend.skills.code_skills",
+      "function_name": "run_python",
+      "parameters": {
+        "code": "string",
+        "timeout": "integer"
+      },
+      "output_schema": {
+        "stdout": "string",
+        "stderr": "string",
+        "returncode": "integer"
+      },
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [
+          "*"
+        ],
+        "allowed_system_calls": [
+          "python"
+        ]
+      },
+      "retry_policy": {
+        "max_retries": 0,
+        "backoff_seconds": 0.0,
+        "retryable_errors": []
+      },
+      "requires_confirmation": true,
+      "operation_type": "write",
+      "category": "code",
+      "is_generated": false
+    },
+    {
+      "name": "validate_syntax",
+      "version": 1,
+      "description": "Validate Python code syntax without executing it",
+      "module_path": "backend.skills.code_skills",
+      "function_name": "validate_syntax",
+      "parameters": {
+        "code": "string"
+      },
+      "output_schema": {
+        "valid": "boolean",
+        "message": "string"
+      },
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 0,
+        "backoff_seconds": 0.0,
+        "retryable_errors": []
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "code",
+      "is_generated": false
+    },
+    {
+      "name": "convert_celsius_temperature_to",
+      "version": 1,
+      "description": "convert celsius temperature to fahrenheit",
+      "module_path": "generated.skills.convert_celsius_temperature_to",
+      "function_name": "convert_celsius_temperature_to",
+      "parameters": {},
+      "output_schema": {},
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 2,
+        "backoff_seconds": 1.0,
+        "retryable_errors": [
+          "TimeoutError",
+          "ConnectionError",
+          "httpx.TimeoutException"
+        ]
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "custom",
+      "is_generated": true
+    },
+    {
+      "name": "calculate_the_square_root",
+      "version": 1,
+      "description": "calculate the square root of a number and return the result",
+      "module_path": "generated.skills.calculate_the_square_root",
+      "function_name": "calculate_the_square_root",
+      "parameters": {},
+      "output_schema": {},
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 2,
+        "backoff_seconds": 1.0,
+        "retryable_errors": [
+          "TimeoutError",
+          "ConnectionError",
+          "httpx.TimeoutException"
+        ]
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "custom",
+      "is_generated": true
+    },
+    {
+      "name": "multiply_two_numbers_together",
+      "version": 1,
+      "description": "multiply two numbers together and return the product 1780770114",
+      "module_path": "generated.skills.multiply_two_numbers_together",
+      "function_name": "multiply_two_numbers_together",
+      "parameters": {},
+      "output_schema": {},
+      "permission_manifest": {
+        "allowed_domains": [],
+        "allowed_file_paths": [],
+        "allowed_system_calls": []
+      },
+      "retry_policy": {
+        "max_retries": 2,
+        "backoff_seconds": 1.0,
+        "retryable_errors": [
+          "TimeoutError",
+          "ConnectionError",
+          "httpx.TimeoutException"
+        ]
+      },
+      "requires_confirmation": false,
+      "operation_type": "read",
+      "category": "custom",
+      "is_generated": true
+    }
+  ]
+}

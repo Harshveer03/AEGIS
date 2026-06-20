@@ -1,0 +1,22 @@
+# Environment
+.env
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated code — track structure but not content
+generated/skills/*.py
+generated/agents/*.json
+
+# Logs
+logs/
+
+# VS Code
+.vscode/
+
+# Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/

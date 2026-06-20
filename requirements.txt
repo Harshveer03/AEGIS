@@ -1,0 +1,44 @@
+# API Framework
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+
+# LangGraph — Brain orchestration
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-community>=0.3.0
+langchain-ollama>=0.2.0
+
+# Pydantic — data models and validation
+pydantic>=2.7.3
+pydantic-settings>=2.3.1
+
+# MongoDB — task store
+motor>=3.4.0
+pymongo>=4.7.3
+
+# Redis + Celery — async task queue
+celery>=5.4.0
+redis>=5.0.6
+
+# HTTP client
+httpx>=0.27.0
+requests>=2.32.3
+
+# Web search skill
+duckduckgo-search>=6.1.9
+ddgs
+
+# Browser skill
+playwright>=1.44.0
+
+# Docker SDK — sandbox runner
+docker>=7.1.0
+
+# Utilities
+python-dotenv>=1.0.1
+tenacity>=8.3.0
+structlog>=24.2.0
+rich>=13.7.1
+
+chromadb 
+pypdf
